@@ -4,6 +4,6 @@ MacIntel_task:
   script: |
      brew install gcc qt cmake
      mkdir -p build && cd build
-     cmake -DCMAKE_CXX_COMPILER=g++-12 ..
+     cmake -DCMAKE_CXX_COMPILER=g++-11 ..
      make
 
