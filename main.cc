@@ -1,6 +1,6 @@
-#include "nApp.h"
+#include "my_app.h"
 
 int main(int argc, char **argv) {
-    myApp my_app(argc,argv);
-    return my_app.exec();
+    my_app app(argc,argv);
+    return app.exec();
 }

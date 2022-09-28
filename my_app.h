@@ -5,7 +5,7 @@
 #include <QVector>
 #include <QMainWindow>
 
-class my_class : public QWidget {
+class my_class : public QMainWindow {
     Q_OBJECT
 
 public:

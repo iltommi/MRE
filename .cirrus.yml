@@ -1,0 +1,12 @@
+MacIntel_task:
+  macos_instance:
+    image: big-sur-base
+  depends_on: tag
+  script: |
+     brew update
+     brew install objc-codegenutils objc-run
+     brew install gcc qtcmake
+     mkdir -p build_gcc && cd build_gcc
+     cmake -DCMAKE_CXX_COMPILER=g++-12 ..
+     make
+
