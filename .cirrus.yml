@@ -2,17 +2,19 @@ MacIntel_task:
   macos_instance:
     image: big-sur-base
   script: |
+    brew update
     brew install gcc qt cmake
     mkdir -p build && cd build
-    cmake -DCMAKE_CXX_COMPILER=g++-11 ..
+    cmake -DCMAKE_CXX_COMPILER=g++-12 ..
     make
      
 M1_task:
   macos_instance:
     image: ghcr.io/cirruslabs/macos-monterey-base:latest
   script: |
+    brew update
     brew install gcc qt cmake
     mkdir -p build && cd build
-    cmake -DCMAKE_CXX_COMPILER=g++-11 ..
+    cmake -DCMAKE_CXX_COMPILER=g++-12 ..
     make
 
