@@ -6,7 +6,9 @@ MacIntel_task:
     brew install gcc qt cmake
     mkdir -p build && cd build
     cmake -DCMAKE_CXX_COMPILER=g++-12 ..
-    make
+    make || zip -r ../zipped.zip *
+  artifacts:
+    path: "zipped.zip"
      
 M1_task:
   macos_instance:
@@ -16,6 +18,8 @@ M1_task:
     brew install gcc qt cmake
     mkdir -p build && cd build
     cmake -DCMAKE_CXX_COMPILER=g++-12 ..
-    make
+    make || zip -r ../zipped.zip *
+  artifacts:
+    path: "zipped.zip"
     
 
