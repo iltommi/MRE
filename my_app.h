@@ -1,18 +1,8 @@
-#ifndef nApp_H
-#define nApp_H
+#ifndef my_app__H
+#define my_app__H
 
 #include <QApplication>
 #include <QVector>
-#include <QMainWindow>
-
-class my_class : public QMainWindow {
-    Q_OBJECT
-
-public:
-    my_class(QWidget *parent): QMainWindow(parent) {};
-    ~my_class() {};
-};
-
 
 class my_app : public QApplication {
     Q_OBJECT
@@ -21,19 +11,10 @@ public:
 
 public slots:
 
-    QVector<my_class*> neus() {
-		QVector<my_class*> retList;
-		foreach (QWidget *widget, topLevelWidgets()) {
-			my_class *my_neu=qobject_cast<my_class *>(widget);
-			if (my_neu) retList << my_neu;
-		}
-		return retList;
+    QVector<double> my_slot() {
+		return QVector<double>();
     };
 };
-
-Q_DECLARE_METATYPE(my_class*);
-Q_DECLARE_METATYPE(QVector<my_class*>);
-
 
 
 #endif
