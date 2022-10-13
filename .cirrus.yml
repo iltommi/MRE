@@ -1,28 +1,29 @@
-MacIntel_task:
-  macos_instance:
-    image: big-sur-base
-  script: |
-    brew update
-    brew install gcc qt cmake
-    mkdir -p build && cd build
-    cmake -DCMAKE_CXX_COMPILER=g++-12 ..
-    make || zip -r ../zipped.zip *
-  artifacts:
-    path: "zipped.zip"
+# MacIntel_task:
+#   macos_instance:
+#     image: big-sur-base
+#   script: |
+#     brew update
+#     brew install gcc qt cmake
+#     mkdir -p build && cd build
+#     cmake -DCMAKE_CXX_COMPILER=g++-12 ..
+#     make || zip -r ../zipped.zip *
+#   artifacts:
+#     path: "zipped.zip"
      
-M1_task:
-  macos_instance:
-    image: ghcr.io/cirruslabs/macos-monterey-base:latest
-  script: |
-    brew update
-    brew install gcc qt cmake
-    mkdir -p build && cd build
-    cmake -DCMAKE_CXX_COMPILER=g++-12 ..
-    make || zip -r ../zipped.zip *
-  artifacts:
-    path: "zipped.zip"
+# M1_task:
+#   macos_instance:
+#     image: ghcr.io/cirruslabs/macos-monterey-base:latest
+#   script: |
+#     brew update
+#     brew install gcc qt cmake
+#     mkdir -p build && cd build
+#     cmake -DCMAKE_CXX_COMPILER=g++-12 ..
+#     make || zip -r ../zipped.zip *
+#   artifacts:
+#     path: "zipped.zip"
     
 arm_task:
   arm_container:
     image: ubuntu:latest
-  script: uname -a
+  script: |
+    apt search qt6*
