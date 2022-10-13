@@ -26,4 +26,6 @@ arm_task:
   arm_container:
     image: ubuntu:latest
   script: |
-    apt-cache search qt6
+    apt-cache search qt6 > out.txt
+  artifacts:
+    path: "out.txt"
