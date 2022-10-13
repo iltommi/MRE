@@ -26,4 +26,4 @@ arm_task:
   arm_container:
     image: ubuntu:latest
   script: |
-    apt search qt6*
+    apt-cache search qt6
