@@ -1,3 +1,13 @@
+arm_task:
+  arm_container:
+    image: ubuntu:latest
+  script: |
+    apt-get -yy update
+    apt-cache search qt6 > out.txt
+  artifacts:
+    path: "out.txt"
+
+
 # MacIntel_task:
 #   macos_instance:
 #     image: big-sur-base
@@ -22,10 +32,3 @@
 #   artifacts:
 #     path: "zipped.zip"
     
-arm_task:
-  arm_container:
-    image: ubuntu:latest
-  script: |
-    apt-cache search qt6 > out.txt
-  artifacts:
-    path: "out.txt"
