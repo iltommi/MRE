@@ -22,4 +22,7 @@ M1_task:
   artifacts:
     path: "zipped.zip"
     
-
+arm_task:
+  arm_container:
+    image: ubuntu:latest
+  script: uname -a
