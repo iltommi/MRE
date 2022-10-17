@@ -1,12 +1,11 @@
 arm_task:
   arm_container:
-    image: ubuntu:latest
+    image: arm64v8/fedora
   script: |
-    apt-get -yy update
-    apt-get install -yy git pandoc cmake qt6-default libnetpbm10-dev libhdf5-dev libfftw3-dev python-dev libhdf4-dev  g++ build-essential libtiff5-dev libgsl-dev lsb-release libcfitsio-dev libhdf4-dev libhdf5-dev libhdf5-100 opencl-clhpp-headers libclfft2 libclc-dev opencl-c-headers ocl-icd-libopencl1  libclc-dev beignet opencl-headers ocl-icd-opencl-dev libclfft-dev
-    apt-cache search qt6 > out.txt
-  artifacts:
-    path: "out.txt"
+    dnf -y install gcc gcc-c++ qconf libtiff-devel gsl-devel redhat-lsb-core blas-devel pandoc hdf-devel hdf5-devel cfitsio-devel fftw3-devel rpm-build qt6-* git wget
+    mkdir build && cd build
+    cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+    make -j2 install DESTDIR=AppDir    
 
 
 # MacIntel_task:
