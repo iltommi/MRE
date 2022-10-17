@@ -1,34 +1,24 @@
-arm_task:
-  arm_container:
-    image: arm64v8/fedora
+MacIntel_task:
+  macos_instance:
+    image: big-sur-base
   script: |
-    dnf -y install gcc gcc-c++ qconf libtiff-devel gsl-devel redhat-lsb-core blas-devel pandoc hdf-devel hdf5-devel cfitsio-devel fftw3-devel rpm-build qt6-* git wget
-    mkdir build && cd build
-    cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-    make -j2 install DESTDIR=AppDir    
-
-
-# MacIntel_task:
-#   macos_instance:
-#     image: big-sur-base
-#   script: |
-#     brew update
-#     brew install gcc qt cmake
-#     mkdir -p build && cd build
-#     cmake -DCMAKE_CXX_COMPILER=g++-12 ..
-#     make || zip -r ../zipped.zip *
-#   artifacts:
-#     path: "zipped.zip"
+    brew update
+    brew install gcc qt cmake
+    mkdir -p build && cd build
+    cmake -DCMAKE_CXX_COMPILER=g++-12 ..
+    make || zip -r ../zipped.zip *
+  artifacts:
+    path: "zipped.zip"
      
-# M1_task:
-#   macos_instance:
-#     image: ghcr.io/cirruslabs/macos-monterey-base:latest
-#   script: |
-#     brew update
-#     brew install gcc qt cmake
-#     mkdir -p build && cd build
-#     cmake -DCMAKE_CXX_COMPILER=g++-12 ..
-#     make || zip -r ../zipped.zip *
-#   artifacts:
-#     path: "zipped.zip"
+M1_task:
+  macos_instance:
+    image: ghcr.io/cirruslabs/macos-monterey-base:latest
+  script: |
+    brew update
+    brew install gcc qt cmake
+    mkdir -p build && cd build
+    cmake -DCMAKE_CXX_COMPILER=g++-12 ..
+    make || zip -r ../zipped.zip *
+  artifacts:
+    path: "zipped.zip"
     
