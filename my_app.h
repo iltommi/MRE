@@ -11,8 +11,8 @@ public:
 
 public slots:
 
-    QVector<double> my_slot() {
-		return QVector<double>();
+    QVarLengthArray<double> my_slot() {
+		return QVarLengthArray<double>();
     };
 };
 
