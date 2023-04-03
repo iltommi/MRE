@@ -1,14 +1,14 @@
-MacIntel_task:
-  macos_instance:
-    image: big-sur-base
-  script: |
-    brew update
-    brew install gcc qt cmake
-    mkdir -p build && cd build
-    cmake -DCMAKE_CXX_COMPILER=g++-12 ..
-    make || zip -r ../zipped.zip *
-  artifacts:
-    path: "zipped.zip"
+# MacIntel_task:
+#   macos_instance:
+#     image: big-sur-base
+#   script: |
+#     brew update
+#     brew install gcc qt cmake
+#     mkdir -p build && cd build
+#     cmake -DCMAKE_CXX_COMPILER=g++-12 ..
+#     make || zip -r ../zipped.zip *
+#   artifacts:
+#     path: "zipped.zip"
      
 M1_task:
   macos_instance:
